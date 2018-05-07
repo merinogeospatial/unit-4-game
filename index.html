@@ -6,17 +6,84 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Geometry Collector!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
-    <div class="row justify-content-center my-5">
-        <div class="container center card-panel teal lighten-3">
-            <h1>Hello world! Let's use material design for this project!</h1>
+    <main class="container">    
+        
+        <img src="assets/images/island2.png" alt="Lava Island" height="400px" width="400px" class="background-img left-corner hvr-bob1">
+        <img src="assets/images/island1.png" alt="Clean Island" height="400px" width="400px" class="background-img right-corner hvr-bob2">
+
+
+        <div class="row valign-wrapper justify-content-center my-0">
+            <div class="center title">
+                <h2>Geometric Animal Collector</h2>
+            </div>
         </div>
+
+        <div class="row justify-content-center m-0">
+                <div>
+                    <h4 class="target-number">.target-number</h4>
+                </div>
+        </div>
+
+        <div class="row justify-content-center m-0">
+                <div class="col s4 center">
+                    <img src="assets/images/panda.png" alt="Panda" height="150px" width="150px">
+                </div>
+                <div class="col s4 center">
+                    <img src="assets/images/wolf.png" alt="Wolf" height="150px" width="150px">
+                </div>
+        </div>
+
+        <div class="row justify-content-center m-0">
+            <div class="center total-score valign-wrapper">
+                <h4 class="total-number">.total-number</h4>
+            </div>
+        </div>
+
+        <div class="row justify-content-center m-0">
+            <div class="col s4 center">
+                <img src="assets/images/deer.png" alt="Deer" height="150px" width="150px">
+            </div>
+            <div class="col s4 center">
+                <img src="assets/images/bee.png" alt="Bee" height="150px" width="150px">
+            </div>
+        </div>
+
+        <div class="instructions m-3  center"><p>
+            Instructions will go here.
+        </p></div>
+    </main>   
+    <div class="game-banner center">
+            <h3>Wins/Loss Announced Here</h3>
     </div>
+
+
+    <script>
+    
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
+        }
+
+    let targetNumber = getRndInteger(19,121);
+    let totalScore = 0;
+    
+    $(".target-number").text("Target number: " + targetNumber);
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
