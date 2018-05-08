@@ -67,7 +67,7 @@
         </p></div>
     </main>   
     <div>
-            <h3 class="game-banner center">Good luck!</h3>
+            <h3 class="gameBanner center">Good luck!</h3>
     </div>
 
 
@@ -90,27 +90,27 @@
     // Function to check game status
     function checkWin() {
         if (totalScore === targetNumber) {
-           $(".game-banner").text("Nice job! You win!");
+           $(".gameBanner").text("Nice job! You won!");
             winCount++;
             $("#win-display").text("Number of Wins: " + winCount);
             $("#win-display").addClass('animated bounceInDown');
-            $(".game-banner").addClass('animated bounceInDown');
-            
+           
             resetGame();
+            $(".gameBanner").addClass('animated bounceInDown win-color');
             
             setTimeout(function(){resetAnimation();}, 1000);
 
          }
         else if (totalScore > targetNumber) {
-           $(".game-banner").text("Too bad. You lose!");
+           $(".gameBanner").text("Too bad. You lost!");
            lossCount++;
            $("#lose-display").text("Number of Losses: " + lossCount);
            $("#lose-display").addClass('animated bounceInDown');
-           $(".game-banner").addClass('animated bounceInDown');
-           
+          
            resetGame();
+           $(".gameBanner").addClass('animated bounceInDown lose-color');
 
-            setTimeout(function(){resetAnimation();}, 1000);
+           setTimeout(function(){resetAnimation();}, 1000);
         }
     };
 
@@ -124,13 +124,18 @@
         beeNumber = getRndInt(1,13);
         $(".target-number").text("Target number: " + targetNumber);
         $(".total-number").text("Total score: " + totalScore);
+        $(".target-number").addClass('animated rotateInDownRight');
+        $(".total-number").addClass('animated rotateInDownLeft');
+        $(".gameBanner").removeClass('lose-color win-color');
     }
 
     // Function to remove animtion class for reuse on click
     function resetAnimation() {
         $("#win-display").removeClass('animated bounceInDown');
         $("#lose-display").removeClass('animated bounceInDown');
-        $(".game-banner").removeClass('animated bounceInDown');
+        $(".gameBanner").removeClass('animated bounceInDown');
+        $(".target-number").removeClass('animated rotateInDownRight');
+        $(".total-number").removeClass('animated rotateInDownLeft');
     }
 
 
@@ -140,7 +145,7 @@
     $("#win-display").text("Number of Wins: " + winCount);
     $("#lose-display").text("Number of Losses: " + lossCount);
 
-    
+    // On clicks, evaluate game
     $(".col").on("click", ".panda", function(){
         totalScore += pandaNumber;
         $(".total-number").text("Total score: " + totalScore);

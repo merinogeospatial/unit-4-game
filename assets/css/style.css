@@ -40,8 +40,16 @@ main {
   font-size: 16pt;
 }
 
-.game-banner {
+.gameBanner {
     width: 100%;
+}
+
+.win-color {
+  color: green;
+}
+
+.lose-color {
+  color: red;
 }
 
 .title {
