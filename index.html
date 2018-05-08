@@ -26,6 +26,12 @@
             </div>
         </div>
 
+        <div class="score-keeper">
+            <div id="win-display"></div>
+            <br>
+            <div id="lose-display"></div>
+        </div>
+
         <div class="row justify-content-center m-0">
                 <div>
                     <h4 class="target-number">.target-number</h4>
@@ -61,7 +67,7 @@
         </p></div>
     </main>   
     <div>
-            <h3 class="game-banner center">Wins/Loss Announced Here</h3>
+            <h3 class="game-banner center">Good luck!</h3>
     </div>
 
 
@@ -78,7 +84,7 @@
     let deerNumber = getRndInt(1,13);
     let beeNumber = getRndInt(1,13);
     let totalScore = 0;
-    let winCount =0;
+    let winCount = 0;
     let lossCount = 0;
     
     // Function to check game status
@@ -86,12 +92,25 @@
         if (totalScore === targetNumber) {
            $(".game-banner").text("Nice job! You win!");
             winCount++;
+            $("#win-display").text("Number of Wins: " + winCount);
+            $("#win-display").addClass('animated bounceInDown');
+            $(".game-banner").addClass('animated bounceInDown');
+            
             resetGame();
+            
+            setTimeout(function(){resetAnimation();}, 1000);
+
          }
         else if (totalScore > targetNumber) {
            $(".game-banner").text("Too bad. You lose!");
            lossCount++;
+           $("#lose-display").text("Number of Losses: " + lossCount);
+           $("#lose-display").addClass('animated bounceInDown');
+           $(".game-banner").addClass('animated bounceInDown');
+           
            resetGame();
+
+            setTimeout(function(){resetAnimation();}, 1000);
         }
     };
 
@@ -107,9 +126,20 @@
         $(".total-number").text("Total score: " + totalScore);
     }
 
+    // Function to remove animtion class for reuse on click
+    function resetAnimation() {
+        $("#win-display").removeClass('animated bounceInDown');
+        $("#lose-display").removeClass('animated bounceInDown');
+        $(".game-banner").removeClass('animated bounceInDown');
+    }
+
+
     // Display target number & total score
     $(".target-number").text("Target number: " + targetNumber);
     $(".total-number").text("Total score: " + totalScore);
+    $("#win-display").text("Number of Wins: " + winCount);
+    $("#lose-display").text("Number of Losses: " + lossCount);
+
     
     $(".col").on("click", ".panda", function(){
         totalScore += pandaNumber;
@@ -120,6 +150,7 @@
         totalScore += wolfNumber;
         $(".total-number").text("Total score: " + totalScore);
         checkWin();
+
     });
     $(".col").on("click", ".deer", function(){
         totalScore += deerNumber;

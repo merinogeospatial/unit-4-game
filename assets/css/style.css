@@ -24,9 +24,21 @@ main {
     flex: 1 0 auto;
 }
       
-/* div {
-    border: dashed green 2pt;
-} */
+.score-keeper {
+  position: fixed;
+  top: 3%;
+  right: 3%;
+}
+
+#win-display {
+  color: rgb(141, 211, 35);
+  font-size: 16pt;
+}
+
+#lose-display {
+  color: rgb(252, 55, 55);
+  font-size: 16pt;
+}
 
 .game-banner {
     width: 100%;
