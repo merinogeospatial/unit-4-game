@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Geometry Collector!</title>
+    <title>Geometry Collector</title>
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">   
@@ -33,10 +34,10 @@
 
         <div class="row justify-content-center m-0">
                 <div class="col s4 center">
-                    <img src="assets/images/panda.png" alt="Panda" height="150px" width="150px">
+                    <img src="assets/images/panda.png" alt="Panda" height="150px" width="150px" class="panda hvr-buzz">
                 </div>
                 <div class="col s4 center">
-                    <img src="assets/images/wolf.png" alt="Wolf" height="150px" width="150px">
+                    <img src="assets/images/wolf.png" alt="Wolf" height="150px" width="150px" class="wolf hvr-buzz">
                 </div>
         </div>
 
@@ -48,10 +49,10 @@
 
         <div class="row justify-content-center m-0">
             <div class="col s4 center">
-                <img src="assets/images/deer.png" alt="Deer" height="150px" width="150px">
+                <img src="assets/images/deer.png" alt="Deer" height="150px" width="150px" class="deer hvr-buzz">
             </div>
             <div class="col s4 center">
-                <img src="assets/images/bee.png" alt="Bee" height="150px" width="150px">
+                <img src="assets/images/bee.png" alt="Bee" height="150px" width="150px" class="bee hvr-buzz"> 
             </div>
         </div>
 
@@ -59,25 +60,79 @@
             Instructions will go here.
         </p></div>
     </main>   
-    <div class="game-banner center">
-            <h3>Wins/Loss Announced Here</h3>
+    <div>
+            <h3 class="game-banner center">Wins/Loss Announced Here</h3>
     </div>
 
 
     <script>
-    
-    function getRndInteger(min, max) {
+    // Generates random number
+    function getRndInt(min, max) {
         return Math.floor(Math.random() * (max - min) ) + min;
         }
-
-    let targetNumber = getRndInteger(19,121);
+    
+    // Assign random numbers to variables
+    let targetNumber = getRndInt(19,121);
+    let pandaNumber = getRndInt(1,13);
+    let wolfNumber = getRndInt(1,13);
+    let deerNumber = getRndInt(1,13);
+    let beeNumber = getRndInt(1,13);
     let totalScore = 0;
+    let winCount =0;
+    let lossCount = 0;
     
+    // Function to check game status
+    function checkWin() {
+        if (totalScore === targetNumber) {
+           $(".game-banner").text("Nice job! You win!");
+            winCount++;
+            resetGame();
+         }
+        else if (totalScore > targetNumber) {
+           $(".game-banner").text("Too bad. You lose!");
+           lossCount++;
+           resetGame();
+        }
+    };
+
+    // Function to reset game on win or lose, reassigns random numbers
+    function resetGame() {
+        totalScore = 0;
+        targetNumber = getRndInt(19,121);
+        pandaNumber = getRndInt(1,13);
+        wolfNumber = getRndInt(1,13);
+        deerNumber = getRndInt(1,13);
+        beeNumber = getRndInt(1,13);
+        $(".target-number").text("Target number: " + targetNumber);
+        $(".total-number").text("Total score: " + totalScore);
+    }
+
+    // Display target number & total score
     $(".target-number").text("Target number: " + targetNumber);
+    $(".total-number").text("Total score: " + totalScore);
     
+    $(".col").on("click", ".panda", function(){
+        totalScore += pandaNumber;
+        $(".total-number").text("Total score: " + totalScore);
+        checkWin();
+    });
+    $(".col").on("click", ".wolf", function(){
+        totalScore += wolfNumber;
+        $(".total-number").text("Total score: " + totalScore);
+        checkWin();
+    });
+    $(".col").on("click", ".deer", function(){
+        totalScore += deerNumber;
+        $(".total-number").text("Total score: " + totalScore);
+        checkWin();
+    });
+    $(".col").on("click", ".bee", function(){
+        totalScore += beeNumber;
+        $(".total-number").text("Total score: " + totalScore);
+        checkWin();
+    });
     
-    
-    
+
     
     
     </script>
