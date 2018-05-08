@@ -48,7 +48,7 @@
         </div>
 
         <div class="row justify-content-center m-0">
-            <div class="center total-score valign-wrapper">
+            <div class="center total-score valign-wrapper hvr-buzz-on">
                 <h4 class="total-number">.total-number</h4>
             </div>
         </div>
@@ -92,19 +92,19 @@
         if (totalScore === targetNumber) {
            $(".gameBanner").text("Nice job! You won!");
             winCount++;
-            $("#win-display").text("Number of Wins: " + winCount);
+            $("#win-display").text("Wins:   " + winCount);
             $("#win-display").addClass('animated bounceInDown');
            
             resetGame();
             $(".gameBanner").addClass('animated bounceInDown win-color');
-            
+
             setTimeout(function(){resetAnimation();}, 1000);
 
          }
         else if (totalScore > targetNumber) {
            $(".gameBanner").text("Too bad. You lost!");
            lossCount++;
-           $("#lose-display").text("Number of Losses: " + lossCount);
+           $("#lose-display").text("Losses: " + lossCount);
            $("#lose-display").addClass('animated bounceInDown');
           
            resetGame();
@@ -142,8 +142,8 @@
     // Display target number & total score
     $(".target-number").text("Target number: " + targetNumber);
     $(".total-number").text("Total score: " + totalScore);
-    $("#win-display").text("Number of Wins: " + winCount);
-    $("#lose-display").text("Number of Losses: " + lossCount);
+    $("#win-display").text("Wins:     " + winCount);
+    $("#lose-display").text("Losses: " + lossCount);
 
     // On clicks, evaluate game
     $(".col").on("click", ".panda", function(){

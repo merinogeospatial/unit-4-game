@@ -45,11 +45,11 @@ main {
 }
 
 .win-color {
-  color: green;
+  color: rgb(141, 211, 35);
 }
 
 .lose-color {
-  color: red;
+  color: rgb(252, 55, 55);
 }
 
 .title {
@@ -191,6 +191,23 @@ main {
     animation-name: hvr-buzz;
     -webkit-animation-duration: 0.15s;
     animation-duration: 0.15s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  .hvr-buzz-on {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .hvr-buzz-on {
+    -webkit-animation-name: hvr-buzz;
+    animation-name: hvr-buzz;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
