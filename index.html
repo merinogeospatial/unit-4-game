@@ -103,8 +103,7 @@ $(function() {
         if (totalScore === targetNumber) {
            $(".gameBanner").text("Nice job! You won!");
             winCount++;
-            $("#win-display").text("Wins:   " + winCount);
-            $("#win-display").addClass('animated bounceInDown');
+            $("#win-display").text("Wins:   " + winCount).addClass('animated bounceInDown');
            
             resetGame();
             $(".gameBanner").addClass('animated bounceInDown win-color');
@@ -115,8 +114,7 @@ $(function() {
         else if (totalScore > targetNumber) {
            $(".gameBanner").text("Too bad. You lost!");
            lossCount++;
-           $("#lose-display").text("Losses: " + lossCount);
-           $("#lose-display").addClass('animated bounceInDown');
+           $("#lose-display").text("Losses: " + lossCount).addClass('animated bounceInDown');
           
            resetGame();
            $(".gameBanner").addClass('animated bounceInDown lose-color');
@@ -133,10 +131,8 @@ $(function() {
         wolfNumber = getRndInt(1,13);
         deerNumber = getRndInt(1,13);
         beeNumber = getRndInt(1,13);
-        $(".target-number").text("Target number: " + targetNumber);
-        $(".total-number").text("Total score: " + totalScore);
-        $(".target-number").addClass('animated rotateInDownRight');
-        $(".total-number").addClass('animated rotateInDownLeft');
+        $(".target-number").text("Target number: " + targetNumber).addClass('animated rotateInDownRight');;
+        $(".total-number").text("Total score: " + totalScore).addClass('animated rotateInDownLeft');
         $(".gameBanner").removeClass('lose-color win-color');
     }
 
@@ -179,9 +175,6 @@ $(function() {
         checkWin();
     });
 }); 
-
-    
-    
     </script>
 
 
