@@ -23,6 +23,16 @@
         <div class="row valign-wrapper justify-content-center my-0">
             <div class="center title">
                 <h2>Geometric Animal Collector</h2>
+                <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Instructions
+                    </button>
+            
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                    Each animal represents a random number, and clicking an animal will raise your total score by that random number. The objective is to get your total score to match the target number without going over it. If your total score exceeds the target number, you will lose the game.
+                    </div>
+                 </div>
+            
             </div>
         </div>
 
@@ -62,9 +72,7 @@
             </div>
         </div>
 
-        <div class="instructions m-3  center"><p>
-            Instructions will go here.
-        </p></div>
+
     </main>   
     <div>
             <h3 class="gameBanner center">Good luck!</h3>
@@ -72,12 +80,12 @@
 
 
     <script>
-    // Generates random number
+    // Generates random number base on parameters
     function getRndInt(min, max) {
         return Math.floor(Math.random() * (max - min) ) + min;
         }
     
-    // Assign random numbers to variables
+    // Assign random numbers to variables, set counters
     let targetNumber = getRndInt(19,121);
     let pandaNumber = getRndInt(1,13);
     let wolfNumber = getRndInt(1,13);
@@ -87,6 +95,9 @@
     let winCount = 0;
     let lossCount = 0;
     
+
+$(function() {
+
     // Function to check game status
     function checkWin() {
         if (totalScore === targetNumber) {
@@ -167,7 +178,7 @@
         $(".total-number").text("Total score: " + totalScore);
         checkWin();
     });
-    
+}); 
 
     
     
